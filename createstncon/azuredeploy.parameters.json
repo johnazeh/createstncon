@@ -1,0 +1,293 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "canadacentral"
+    },
+
+    "enableAcceleratedNetworking": {
+      "value": true
+    },
+    "networkSecurityGroupName": {
+      "value": "devvm-nsg"
+    },
+    "networkInterfaceName1": {
+      "value": "devnic"
+    },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "RDP",
+          "properties": {
+            "priority": 300,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "3389"
+          }
+
+        },
+        {
+          "name": "HTTP",
+          "properties": {
+            "priority": 320,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "80"
+          }
+        },
+        {
+          "name": "default-allow-sql",
+          "properties": {
+            "priority": 1600,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "1433"
+          }
+        }
+      ]
+    },
+    "subnetName": {
+      "value": "devsubnet"
+    },
+    "virtualNetworkId": {
+      "value": "/subscriptions/1a599dc9-e029-4645-a794-a46ab637b821/resourceGroups/AzureBackupRG_canadacentral_1/providers/Microsoft.Network/virtualNetworks/devnet"
+    },
+    "publicIpAddressName1": {
+      "value": "devvm-ip"
+    },
+    "publicIpAddressType": {
+      "value": "Static"
+    },
+    "publicIpAddressSku": {
+      "value": "Standard"
+    },
+    "pipDeleteOption": {
+      "value": "Detach"
+    },
+    "virtualMachineName": {
+      "value": "devvm"
+    },
+    "virtualMachineName1": {
+      "value": "devvm"
+    },
+    "virtualMachineComputerName1": {
+      "value": "devvm"
+    },
+    "virtualMachineRG": {
+      "value": "AzureBackupRG_canadacentral_1"
+    },
+    "osDiskType": {
+      "value": "Premium_LRS"
+    },
+    "osDiskDeleteOption": {
+      "value": "Delete"
+    },
+    "dataDisks1": {
+      "value": [
+        {
+          "lun": 0,
+          "createOption": "attach",
+          "deleteOption": "Detach",
+          "caching": "ReadOnly",
+          "writeAcceleratorEnabled": false,
+          "id": null,
+          "name": "devvm_DataDisk_0",
+          "storageAccountType": null,
+          "diskSizeGB": null,
+          "diskEncryptionSet": null
+        },
+        {
+          "lun": 1,
+          "createOption": "attach",
+          "deleteOption": "Detach",
+          "caching": "None",
+          "writeAcceleratorEnabled": false,
+          "id": null,
+          "name": "devvm_DataDisk_1",
+          "storageAccountType": null,
+          "diskSizeGB": null,
+          "diskEncryptionSet": null
+        }
+      ]
+    },
+    "dataDiskResources1": {
+      "value": [
+        {
+          "name": "devvm_DataDisk_0",
+          "sku": "Premium_LRS",
+          "properties": {
+            "diskSizeGB": 1024,
+            "creationData": {
+              "createOption": "empty"
+            }
+          }
+        },
+        {
+          "name": "devvm_DataDisk_1",
+          "sku": "Premium_LRS",
+          "properties": {
+            "diskSizeGB": 1024,
+            "creationData": {
+              "createOption": "empty"
+            }
+          }
+        }
+      ]
+    },
+    "virtualMachineSize": {
+      "value": "Standard_DS2_v2"
+    },
+    "nicDeleteOption": {
+      "value": "Detach"
+    },
+    "adminUsername": {
+      "value": "john.azeh"
+    },
+    "adminPassword": {
+      "value": "Password010101"
+    },
+    "patchMode": {
+      "value": "AutomaticByOS"
+    },
+    "enableHotpatching": {
+      "value": false
+    },
+    "virtualMachine1Zone": {
+      "value": "1"
+    },
+    "autoShutdownStatus": {
+      "value": "Enabled"
+    },
+    "autoShutdownTime": {
+      "value": "19:00"
+    },
+    "autoShutdownTimeZone": {
+      "value": "UTC"
+    },
+    "autoShutdownNotificationStatus": {
+      "value": "Enabled"
+    },
+    "autoShutdownNotificationLocale": {
+      "value": "en"
+    },
+    "autoShutdownNotificationEmail": {
+      "value": "azcoursejohnaze@gmail.com"
+    },
+    "sqlVirtualMachineLocation": {
+      "value": "canadacentral"
+    },
+    "sqlVirtualMachineName": {
+      "value": "devvm"
+    },
+    "sqlConnectivityType": {
+      "value": "Public"
+    },
+    "sqlPortNumber": {
+      "value": 1433
+    },
+    "sqlStorageDisksCount": {
+      "value": 1
+    },
+    "sqlStorageWorkloadType": {
+      "value": "OLTP"
+    },
+    "sqlStorageDisksConfigurationType": {
+      "value": "NEW"
+    },
+    "sqlStorageStartingDeviceId": {
+      "value": 2
+    },
+    "sqlStorageDeploymentToken": {
+      "value": 32609
+    },
+    "sqlAutopatchingDayOfWeek": {
+      "value": "Sunday"
+    },
+    "sqlAutopatchingStartHour": {
+      "value": "2"
+    },
+    "sqlAutopatchingWindowDuration": {
+      "value": "60"
+    },
+    "sqlAuthenticationLogin": {
+      "value": "johnazeh"
+    },
+    "sqlAuthenticationPassword": {
+      "value": "Password010101"
+    },
+    "dataPath": {
+      "value": "F:\\data"
+    },
+    "dataDisksLUNs": {
+      "value": [
+        0
+      ]
+    },
+    "logPath": {
+      "value": "G:\\log"
+    },
+    "logDisksLUNs": {
+      "value": [
+        1
+      ]
+    },
+    "tempDbPath": {
+      "value": "D:\\tempDb"
+    },
+    "dataFileCount": {
+      "value": 2
+    },
+    "dataFileSize": {
+      "value": 8
+    },
+    "dataGrowth": {
+      "value": 64
+    },
+    "logFileSize": {
+      "value": 8
+    },
+    "logGrowth": {
+      "value": 64
+    },
+    "SQLSystemDbOnDataDisk": {
+      "value": false
+    },
+    "rServicesEnabled": {
+      "value": "false"
+    },
+    "maxdop": {
+      "value": 0
+    },
+    "isOptimizeForAdHocWorkloadsEnabled": {
+      "value": false
+    },
+    "collation": {
+      "value": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "minServerMemoryMB": {
+      "value": 0
+    },
+    "maxServerMemoryMB": {
+      "value": 2147483647
+    },
+    "isLPIMEnabled": {
+      "value": false
+    },
+    "isIFIEnabled": {
+      "value": false
+    }
+  }
+}
